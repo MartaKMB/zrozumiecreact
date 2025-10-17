@@ -12,6 +12,31 @@ function App() {
   ]);
   const subheading = getSubheading(todos.length);
 
+  function addItem(newTodo) {
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      {
+        name: newTodo,
+        done: false,
+        id: prevTodos.length > 0 ? prevTodos.at(-1).id + 1 : 0,
+      },
+    ]);
+    setIsFormShown(false);
+  }
+
+  function deleteItem(id) {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
+  function finishItem(id) {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id !== id) return todo;
+        return { ...todo, done: true };
+      })
+    );
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -28,36 +53,15 @@ function App() {
           </button>
         )}
       </header>
-      {isFormShown && (
-        <Form
-          onFormSubmit={(newTodo) => {
-            setTodos((prevTodos) => [
-              ...prevTodos,
-              { name: newTodo, done: false, id: prevTodos.length > 0 ? prevTodos.at(-1).id + 1 : 0},
-            ]);
-            setIsFormShown(false);
-          }}
-        />
-      )}
+      {isFormShown && <Form onFormSubmit={(newTodo) => addItem(newTodo)} />}
       <ul>
         {todos.map(({ id, name, done }) => (
           <TodoItem
             key={id}
             name={name}
             done={done}
-            onDeleteButtonClick={() =>
-              setTodos((prevTodos) =>
-                prevTodos.filter((todo) => todo.id !== id)
-              )
-            }
-            onDoneButtonClick={() => {
-              setTodos((prevTodos) =>
-                prevTodos.map((todo) => {
-                  if (todo.id !== id) return todo;
-                  return { ...todo, done: true };
-                })
-              );
-            }}
+            onDeleteButtonClick={() => deleteItem(id)}
+            onDoneButtonClick={() => finishItem(id)}
           />
         ))}
       </ul>
