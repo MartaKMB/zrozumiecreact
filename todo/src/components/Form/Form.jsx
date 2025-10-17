@@ -9,12 +9,12 @@ export function Form({ onFormSubmit }) {
     <form
       onSubmit={(e) => {
         e.preventDefault;
-        onFormSubmit(inputValue);
+        inputValue.length > 0 && onFormSubmit(inputValue);
       }}
       className={styles.form}
     >
       <input value={inputValue} onChange={e => setInputValue(e.target.value)} className={styles.input} type='text' />
-      <Button>Dodaj</Button>
+      <Button disabled={inputValue.length === 0}>Dodaj</Button>
     </form>
   );
 }
