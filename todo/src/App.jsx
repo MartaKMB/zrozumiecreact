@@ -72,9 +72,11 @@ function App() {
             key={id}
             name={name}
             done={done}
+            index={index}
+            itemsLength={todos.length}
             onDeleteButtonClick={() => deleteItem(id)}
             onDoneButtonClick={() => finishItem(id)}
-            onMoveButtonClick={(direction) => moveItem(direction, index)}
+            onMoveButtonClick={(direction, index) => moveItem(direction, index)}
           />
         ))}
       </ul>
