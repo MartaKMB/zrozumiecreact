@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '../Button/Button';
 import styles from './TodoItem.module.css';
 
@@ -8,17 +9,35 @@ export function TodoItem({
   onDoneButtonClick,
   onMoveButtonClick,
   index,
-  itemsLength
+  itemsLength,
 }) {
+  const [isEdited, setIsEdited] = useState(false);
+
   return (
     <li className={styles.item}>
-      <span className={`${styles.name} ${done ? styles.done : ''}`}>
-        {name}
-      </span>
+      {isEdited ? (
+        <input value={name} />
+      ) : (
+        <span className={`${styles.name} ${done ? styles.done : ''}`}>
+          {name}
+        </span>
+      )}
+
       {!done && <Button onClick={onDoneButtonClick}>Zrobione</Button>}
+      <Button
+        disabled={index === 0}
+        onClick={() => onMoveButtonClick(-1, index)}
+      >
+        ↑
+      </Button>
+      <Button
+        disabled={index + 1 === itemsLength}
+        onClick={() => onMoveButtonClick(1, index)}
+      >
+        ↓
+      </Button>
+      {!done && <Button onClick={() => setIsEdited(prev => !prev)}>{isEdited ? "Zapisz" : "Edytuj"}</Button>}
       <Button onClick={onDeleteButtonClick}>Usuń</Button>
-      <Button disabled={index === 0} onClick={() => onMoveButtonClick(-1, index)}>↑</Button>
-      <Button disabled={index + 1 === itemsLength} onClick={() => onMoveButtonClick(1, index)}>↓</Button>
     </li>
   );
 }
