@@ -1,9 +1,12 @@
+import { Button } from "../Button/Button";
+import styles from "./TodoItem.module.css";
+
 export function TodoItem({ name, done }) {
   return (
-    <li>
-      <span>{name}</span>
-      {!done && <button>Zrobione</button>}
-      <button>Usuń</button>
+    <li className={styles.item}>
+      <span className={`${styles.name} ${done ? styles.done : ''}`}>{name}</span>
+      {!done && <Button>Zrobione</Button>}
+      <Button>Usuń</Button>
     </li>
   );
 }
