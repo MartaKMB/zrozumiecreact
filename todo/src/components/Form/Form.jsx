@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import styles from './Form.module.css';
 
 export function Form({ onFormSubmit }) {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
   return (
     <form
@@ -13,7 +13,12 @@ export function Form({ onFormSubmit }) {
       }}
       className={styles.form}
     >
-      <input value={inputValue} onChange={e => setInputValue(e.target.value)} className={styles.input} type='text' />
+      <input
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        className={styles.input}
+        type='text'
+      />
       <Button disabled={inputValue.length === 0}>Dodaj</Button>
     </form>
   );
