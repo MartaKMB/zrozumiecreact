@@ -49,6 +49,15 @@ function App() {
     });
   }
 
+  function editItem(id, newName) {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id !== id) return todo;
+        return { ...todo, name: newName };
+      })
+    );
+  }
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -77,6 +86,7 @@ function App() {
             onDeleteButtonClick={() => deleteItem(id)}
             onDoneButtonClick={() => finishItem(id)}
             onMoveButtonClick={(direction, index) => moveItem(direction, index)}
+            onEditButtonClick={(newName) => editItem(id, newName)}
           />
         ))}
       </ul>
