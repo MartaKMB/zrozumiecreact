@@ -18,7 +18,7 @@ function App() {
       {
         name: newTodo,
         done: false,
-        id: prevTodos.length > 0 ? prevTodos.at(-1).id + 1 : 0,
+        id: Math.random(),
       },
     ]);
     setIsFormShown(false);
@@ -35,6 +35,18 @@ function App() {
         return { ...todo, done: true };
       })
     );
+  }
+
+  function moveItem(direction, index) {
+    const newIndex = index + direction;
+    if (newIndex < 0 || newIndex >= todos.length) return; // poza zakresem
+
+    setTodos((prevTodos) => {
+      const newItems = [...prevTodos];
+      const [movedItem] = newItems.splice(index, 1);
+      newItems.splice(newIndex, 0, movedItem);
+      return newItems;
+    });
   }
 
   return (
@@ -55,13 +67,14 @@ function App() {
       </header>
       {isFormShown && <Form onFormSubmit={(newTodo) => addItem(newTodo)} />}
       <ul>
-        {todos.map(({ id, name, done }) => (
+        {todos.map(({ id, name, done }, index) => (
           <TodoItem
             key={id}
             name={name}
             done={done}
             onDeleteButtonClick={() => deleteItem(id)}
             onDoneButtonClick={() => finishItem(id)}
+            onMoveButtonClick={(direction) => moveItem(direction, index)}
           />
         ))}
       </ul>
