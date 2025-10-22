@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
 export function useGetData(url) {
-    console.log("custom hook!");
-
     const [data, setData] = useState([]);
         const [error, setError] = useState(null);
     
