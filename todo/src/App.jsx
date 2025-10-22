@@ -16,7 +16,21 @@ function todosReducer(state, action) {
         name: action.newTodo,
         done: false,
         id: Math.random(),
-      },]
+      },];
+  if (action.type === "move") {
+    const newIndex = action.index + action.direction;
+    if (newIndex < 0 || newIndex >= state.length) return state;
+    const newItems = [...state];
+      const [movedItem] = newItems.splice(action.index, 1);
+      newItems.splice(newIndex, 0, movedItem);
+      return newItems;
+  };
+  if (action.type === "edit") {
+    return state.map((todo) => {
+        if (todo.id !== action.id) return todo;
+        return { ...todo, name: action.newName };
+      })
+  }
 }
 
 function App() {
@@ -43,24 +57,11 @@ function App() {
   }
 
   function moveItem(direction, index) {
-    const newIndex = index + direction;
-    if (newIndex < 0 || newIndex >= todos.length) return; // poza zakresem
-
-    // setTodos((prevTodos) => {
-    //   const newItems = [...prevTodos];
-    //   const [movedItem] = newItems.splice(index, 1);
-    //   newItems.splice(newIndex, 0, movedItem);
-    //   return newItems;
-    // });
+    dispatch({type: "move", direction, index});
   }
 
   function editItem(id, newName) {
-    // setTodos((prevTodos) =>
-    //   prevTodos.map((todo) => {
-    //     if (todo.id !== id) return todo;
-    //     return { ...todo, name: newName };
-    //   })
-    // );
+    dispatch({type: "edit", id, newName});
   }
 
   return (
