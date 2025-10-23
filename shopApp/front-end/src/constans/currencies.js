@@ -1,4 +1,4 @@
 export const CURRENCIES = {
-  USD: 'USD',
-  PLN: 'PLN',
+  USD: "USD",
+  PLN: "PLN",
 };

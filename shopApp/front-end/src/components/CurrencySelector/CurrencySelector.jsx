@@ -1,4 +1,4 @@
-import { CURRENCIES } from '../../constans/currencies';
+import { CURRENCIES } from "../../constans/currencies";
 import styles from "./CurrencySelector.module.css";
 
 export function CurrencySelector() {

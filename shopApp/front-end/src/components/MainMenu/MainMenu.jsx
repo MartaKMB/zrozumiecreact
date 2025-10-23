@@ -1,7 +1,7 @@
 import styles from "./MainMenu.module.css";
 import { GENDERS } from "../../constans/categories";
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 export function MainMenu() {
   return (
