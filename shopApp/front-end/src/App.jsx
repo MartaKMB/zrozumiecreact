@@ -1,6 +1,8 @@
+import { Layout } from "./components/Layout/Layout";
+
 function App() {
   return (
-    <p>witaj w naszym sklepie!</p>
+    <Layout></Layout>
   )
 }
 

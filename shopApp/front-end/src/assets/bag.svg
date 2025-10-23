@@ -1,0 +1,30 @@
+<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="22" height="24" fill="#F5F5F5"/>
+<g id="Strona g&#197;&#130;&#195;&#179;wna">
+<rect width="1920" height="1532" transform="translate(-1606 -25.9399)" fill="white"/>
+<g id="MainContent">
+<rect x="-1606" y="-25.9399" width="1920" height="1330" fill="white"/>
+<rect x="-1606" y="-25.9399" width="1920" height="1330" stroke="black"/>
+<g id="TopBar">
+<rect x="-1445.5" y="-25.4399" width="1599" height="79" fill="white"/>
+<rect x="-1445.5" y="-25.4399" width="1599" height="79" stroke="black"/>
+<g id="List">
+<g id="Item">
+<g id="Link">
+<g id="bag-d41ef75b.svg">
+<g id="bag-d41ef75b.svg_2" clip-path="url(#clip0_0_1)">
+<path id="bag" d="M21.6 7H16.8V4C16.8 1.791 14.6508 0 12 0C9.3492 0 7.2 1.791 7.2 4V7H2.4L0 24H24L21.6 7ZM8.4 4C8.4 2.346 10.0152 1 12 1C13.9848 1 15.6 2.346 15.6 4V7H8.4V4ZM2.6988 22L4.5336 9H7.2V10.5C7.2 10.776 7.4688 11 7.8 11C8.1312 11 8.4 10.776 8.4 10.5V9H15.6V10.5C15.6 10.776 15.8688 11 16.2 11C16.5312 11 16.8 10.776 16.8 10.5V9H19.4664L21.3012 22H2.6988Z" fill="black"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect width="24" height="24" fill="white" transform="translate(-2)"/>
+</clipPath>
+</defs>
+</svg>
