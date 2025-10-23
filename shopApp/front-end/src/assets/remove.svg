@@ -1,0 +1,30 @@
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="15" height="15" fill="#F5F5F5"/>
+<g id="Strona Ulubionych">
+<rect width="1920" height="1530" transform="translate(-324.667 -511.207)" fill="white"/>
+<g id="Frame 3">
+<g id="div._mainContent_cehn8_1">
+<g id="div._container_1lcfi_1">
+<rect width="1600" height="420" transform="translate(-148.667 -365.207)" fill="#F4F4F4"/>
+<g id="div._cartProduct_1lcfi_9">
+<mask id="path-1-inside-1_0_1" fill="white">
+<path d="M-132.667 -133.207H1435.33V38.7932H-132.667V-133.207Z"/>
+</mask>
+<path d="M-132.667 -132.207H1435.33V-134.207H-132.667V-132.207Z" fill="#7A7A7A" mask="url(#path-1-inside-1_0_1)"/>
+<g id="div._cartProductDescription_1lcfi_15">
+<g id="div._buttons_1lcfi_64">
+<g id="Button">
+<g id="remove-2faf058a.svg">
+<g id="remove-2faf058a.svg_2">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M7.33333 6.862L14.1953 0L14.6667 0.471333L7.80467 7.33333L14.6667 14.1953L14.1953 14.6667L7.33333 7.80467L0.471333 14.6667L0 14.1953L6.862 7.33333L0 0.471333L0.471333 0L7.33333 6.862Z" fill="black"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
