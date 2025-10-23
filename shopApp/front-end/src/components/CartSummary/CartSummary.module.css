@@ -1,0 +1,30 @@
+.cartSummary {
+  width: 28rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.cartSummary h2 {
+  border-bottom: 1px solid var(--color-text-grey);
+  padding-bottom: 1rem;
+}
+
+.cartRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartSummaryRow {
+  font-weight: 700;
+}
+
+.deliveryInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-weight: 700;
+  background-color: var(--color-grey);
+}

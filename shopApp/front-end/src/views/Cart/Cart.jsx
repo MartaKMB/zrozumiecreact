@@ -1,8 +1,10 @@
-import { FavouritesList } from "../../components/FavouritesList/FavouritesList";
+import { CartProductsList } from "../../components/CartList/CartProductsList";
+import { CartSummary } from "../../components/CartSummary/CartSummary";
+import { FlexContainer } from "../../components/FlexContainer/FlexContainer";
 import { Layout } from "../../components/Layout/Layout";
 
-export function Favourites() {
-  const favouritesProducts = [
+export function Cart() {
+  const cartProducts = [
     {
       id: 1,
       gender: "men",
@@ -42,10 +44,12 @@ export function Favourites() {
         "Nemo et nam quasi in suscipit earum odit laborum repellat quo dolore rem, sequi eaque sapiente quibu",
     },
   ];
-
   return (
     <Layout>
-      <FavouritesList products={favouritesProducts} />
+      <FlexContainer>
+        <CartProductsList products={cartProducts} />
+        <CartSummary />
+      </FlexContainer>
     </Layout>
   );
 }

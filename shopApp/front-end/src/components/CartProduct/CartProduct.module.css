@@ -1,4 +1,4 @@
-.favouriteProduct {
+.cartProduct {
   padding: 1rem;
   display: flex;
   gap: 3rem;
@@ -6,12 +6,12 @@
   margin: 0.5rem 0;
 }
 
-.favouriteProduct img {
+.cartProduct img {
   width: 85px;
   height: 140px;
 }
 
-.favouriteProductInfo {
+.cartProductInfo {
   display: flex;
   flex: 1;
   flex-direction: column;
