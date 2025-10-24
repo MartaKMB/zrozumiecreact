@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CURRENCIES } from "../../constans/currencies";
+import { CURRENCIES } from "../../constants/currencies";
 import styles from "./CurrencySelector.module.css";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 
@@ -11,7 +11,6 @@ export function CurrencySelector() {
       className={styles.currencySelector}
       onChange={(e) => {
         setCurrency(e.currentTarget.value);
-        localStorage["selected_currency"] = e.currentTarget.value;
       }}
     >
       <option value={CURRENCIES.PLN}>{CURRENCIES.PLN}</option>

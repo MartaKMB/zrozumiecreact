@@ -1,5 +1,5 @@
 import { redirect } from "react-router-dom";
-import { BACK_END_URL, PATH_TO_ENDPOINT_MAPPING } from "../constans/api";
+import { BACK_END_URL, PATH_TO_ENDPOINT_MAPPING } from "../constants/api";
 
 export function mainPageLoader({ params }) {
   const backEndPath = PATH_TO_ENDPOINT_MAPPING[params.gender];

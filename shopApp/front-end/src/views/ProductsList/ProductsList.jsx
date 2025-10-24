@@ -4,7 +4,7 @@ import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { Products } from "../../components/Products/Products";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { useLoaderData, useParams } from "react-router-dom";
-import { CATEGORIES } from "../../constans/categories";
+import { CATEGORIES } from "../../constants/categories";
 
 export function ProductsList() {
   const { products, numberOfPages } = useLoaderData();

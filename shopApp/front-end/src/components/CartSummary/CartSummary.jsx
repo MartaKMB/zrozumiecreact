@@ -3,7 +3,7 @@ import CAR_ICON from "../../assets/car.svg";
 import { useContext } from "react";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 import { FullWidthButton } from "../FullWidthButton/FullWidthButton";
-import { CURRENCIES, CURRENCIES_SIGN } from "../../constans/currencies";
+import { CURRENCIES, CURRENCIES_SIGN } from "../../constants/currencies";
 
 export function CartSummary({ products }) {
   const [currency, setCurrency] = useContext(CurrencyContext);

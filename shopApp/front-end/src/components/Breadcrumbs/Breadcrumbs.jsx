@@ -1,7 +1,7 @@
 import styles from "./Breadcrumbs.module.css";
 import ARROW_ICON from "../../assets/arrow.svg";
 import { NavLink, useParams } from "react-router-dom";
-import { CATEGORIES, GENDERS } from "../../constans/categories";
+import { CATEGORIES, GENDERS } from "../../constants/categories";
 
 export function Breadcrumbs() {
   const { gender, category, subcategory } = useParams();

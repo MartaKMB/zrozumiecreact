@@ -1,5 +1,5 @@
 import styles from "./CategoryMenu.module.css";
-import { CATEGORIES } from "../../constans/categories";
+import { CATEGORIES } from "../../constants/categories";
 import { NavLink, useParams } from "react-router-dom";
 
 export function CategoryMenu() {

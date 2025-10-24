@@ -1,5 +1,5 @@
 import styles from "./MainMenu.module.css";
-import { GENDERS } from "../../constans/categories";
+import { GENDERS } from "../../constants/categories";
 
 import { NavLink } from "react-router-dom";
 

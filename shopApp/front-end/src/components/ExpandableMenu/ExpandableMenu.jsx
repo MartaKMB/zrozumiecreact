@@ -1,5 +1,5 @@
 import styles from "./ExpandableMenu.module.css";
-import { CATEGORIES } from "../../constans/categories.js";
+import { CATEGORIES } from "../../constants/categories.js";
 import ARROW_ICON from "../../assets/arrow.svg";
 import { NavLink, useParams } from "react-router-dom";
 
