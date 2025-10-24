@@ -1,6 +1,6 @@
 import styles from "./Product.module.css";
 
-import { Link } from "react-router-dom";
+import { Link, useFetcher } from "react-router-dom";
 
 const ENDPOINT_TO_PATH_MAPPING = {
   men: "mezczyzna",
@@ -9,6 +9,7 @@ const ENDPOINT_TO_PATH_MAPPING = {
 };
 
 export function Product({ product }) {
+  const { Form } = useFetcher();
   return (
     <Link
       className={styles.product}
@@ -17,7 +18,15 @@ export function Product({ product }) {
       <img src={product.photos[0]} />
       <h3>{product.productName}</h3>
       <p>{product.pricePLN} zł</p>
-      <div className={styles.heart}></div>
+      <Form
+        method="post"
+        action={`/add-to-favourites/${product.id}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button>
+          <div className={styles.heart}></div>
+        </button>
+      </Form>
     </Link>
   );
 }

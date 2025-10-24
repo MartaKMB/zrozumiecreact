@@ -13,8 +13,13 @@ import { Layout } from "./components/Layout/Layout";
 import { mainPageLoader } from "./api/mainPageLoader";
 import { productListLoader } from "./api/productListLoader";
 import { productLoader } from "./api/productLoader";
+import { addProductToFavouritesAction } from "./api/addProductToFavouritesAction";
 
 const router = createBrowserRouter([
+  {
+    path: "/add-to-favourites/:productId",
+    action: addProductToFavouritesAction,
+  },
   {
     path: "",
     element: <Layout />,
