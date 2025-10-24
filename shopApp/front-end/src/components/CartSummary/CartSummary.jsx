@@ -1,7 +1,7 @@
 import styles from "./CartSummary.module.css";
 import CAR_ICON from "../../assets/car.svg";
 import { useContext } from "react";
-import { CurrencyContext } from "../../contexts/currencyContext";
+import { CurrencyContext } from "../../contexts/CurrencyContext";
 import { FullWidthButton } from "../FullWidthButton/FullWidthButton";
 import { CURRENCIES, CURRENCIES_SIGN } from "../../constans/currencies";
 
