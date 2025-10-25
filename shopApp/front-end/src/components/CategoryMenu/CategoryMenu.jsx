@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 
 export function CategoryMenu() {
   const params = useParams();
+  const genderParams = params.gender || 'kobieta';
 
   return (
     <div className={styles.categoryMenu}>
@@ -11,7 +12,7 @@ export function CategoryMenu() {
         {CATEGORIES.map((category) => {
           return (
             <li key={category.path}>
-              <NavLink to={`${params.gender}/${category.path}`}>
+              <NavLink to={`${genderParams}/${category.path}`}>
                 {category.categoryName}
               </NavLink>
             </li>
