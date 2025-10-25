@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 export function IconMenu() {
-  const [cartItems] = useContext(CartContext);
+  const [cartItems, ,] = useContext(CartContext);
 
   return (
     <ul className={styles.iconMenu}>

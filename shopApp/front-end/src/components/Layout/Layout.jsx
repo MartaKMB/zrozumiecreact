@@ -24,9 +24,14 @@ export function Layout() {
     setCartItems(newState);
   }
 
+  function removeProductFromCart(product) {
+    const newState = cartItems.filter(item => item.id !== product.id);
+    setCartItems(newState);
+  }
+
   return (
     <>
-      <CartContext.Provider value={[cartItems, addProductToCart]}>
+      <CartContext.Provider value={[cartItems, addProductToCart, removeProductFromCart]}>
         <CurrencyContext.Provider value={[currency, setCurrency]}>
           <MainContent>
             <TopBar>

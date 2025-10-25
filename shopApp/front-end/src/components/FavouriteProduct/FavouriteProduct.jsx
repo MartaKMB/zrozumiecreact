@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 export function FavouriteProduct({ favourite }) {
-  const [, addProductToCart] = useContext(CartContext);
+  const [, addProductToCart, ] = useContext(CartContext);
   const product = favourite.product;
   const { Form } = useFetcher();
   const price = <Price product={product} />;
