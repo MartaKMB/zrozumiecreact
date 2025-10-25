@@ -1434,14 +1434,6 @@
   ],
   "favourites": [
     {
-      "productId": 1,
-      "id": 1
-    },
-    {
-      "productId": 31,
-      "id": 3
-    },
-    {
       "productId": 33,
       "id": 4
     }

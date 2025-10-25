@@ -6,7 +6,7 @@ import { FullWidthButton } from "../FullWidthButton/FullWidthButton";
 import { CURRENCIES, CURRENCIES_SIGN } from "../../constants/currencies";
 
 export function CartSummary({ products }) {
-  const [currency, setCurrency] = useContext(CurrencyContext);
+  const [currency,] = useContext(CurrencyContext);
 
   const deliveryCosts = {
     [CURRENCIES.USD]: 10,
