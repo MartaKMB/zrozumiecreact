@@ -2,15 +2,23 @@ import { useQuery } from '@tanstack/react-query';
 import './List.css';
 import { peopleQueryOptions } from '../queries/peopleQueryOptions';
 
-export const List = () => {
-  const { data: people } = useQuery(peopleQueryOptions);
+export const List = ({ onPersonSelect }) => {
+  const { data: people, isPending, isError } = useQuery(peopleQueryOptions);
 
-  console.log(people);
+  if (isPending) {
+    return <div>Ładowanie...</div>;
+  }
+
+  if (isError) {
+    return <div>Błąd pobierania</div>;
+  }
 
   return (
     <ul>
       {people?.map((person) => (
-        <li key={person.id}>{person.name}</li>
+        <li key={person.id} onClick={() => onPersonSelect(person.id)}>
+          {person.name}
+        </li>
       ))}
     </ul>
   );
