@@ -9,6 +9,7 @@ export function Form({ onAddPerson }) {
     formState: { errors, isDirty, isSubmitSuccessful },
     watch,
     reset,
+    setError,
   } = useForm({ mode: 'onBlur' });
 
   const isInvoiceRequired = watch('isInvoiceRequired');
@@ -21,7 +22,11 @@ export function Form({ onAddPerson }) {
     }
 
     console.log(formData);
-    onAddPerson(formData);
+    try {
+      onAddPerson(formData);
+    } catch (e) {
+      setError('general', { type: 'custom', message: 'Błąd dodawania osoby' });
+    }
   }
 
   if (isSubmitSuccessful) {
@@ -113,6 +118,9 @@ export function Form({ onAddPerson }) {
       {errors.nip && <span className='error'>{errors.nip.message}</span>}
 
       <div className='footer'>
+        {errors.general && (
+          <span className='error'>{errors.general.message}</span>
+        )}
         <button disabled={!isDirty}>Dodaj</button>
       </div>
     </form>
