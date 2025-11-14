@@ -6,11 +6,11 @@ export function Form({ onAddPerson }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    watch
-  } = useForm();
+    formState: { errors, isDirty, isSubmitSuccessful },
+    watch,
+    reset,
+  } = useForm({ mode: 'onBlur' });
 
-  console.log(errors);
   const isInvoiceRequired = watch('isInvoiceRequired');
 
   function onSubmit(data) {
@@ -19,9 +19,18 @@ export function Form({ onAddPerson }) {
     if (!isInvoiceRequired) {
       delete formData.nip;
     }
-    
+
     console.log(formData);
     onAddPerson(formData);
+  }
+
+  if (isSubmitSuccessful) {
+    return (
+      <>
+        <span className='title'>Dodano pomyślnie!</span>
+        <button onClick={() => reset()}>Dodaj kolejny formularz</button>
+      </>
+    );
   }
 
   return (
@@ -60,35 +69,51 @@ export function Form({ onAddPerson }) {
           },
         })}
       />
-      {errors.contact?.tel && <span className='error'>{errors.contact.tel.message}</span>}
+      {errors.contact?.tel && (
+        <span className='error'>{errors.contact.tel.message}</span>
+      )}
 
       <label htmlFor='email'>E-mail</label>
       <input
         id='email'
         type='email'
-        {...register('contact.email', { required: 'Podaj email', validate: (value) => value.includes('@') || 'Podaj poprawny email' })}
+        {...register('contact.email', {
+          required: 'Podaj email',
+          validate: (value) => value.includes('@') || 'Podaj poprawny email',
+        })}
       />
-      {errors.contact?.email && <span className='error'>{errors.contact.email.message}</span>}
+      {errors.contact?.email && (
+        <span className='error'>{errors.contact.email.message}</span>
+      )}
 
       <label htmlFor='isInvoiceRequired'>
-        <input id='isInvoiceRequired' type='checkbox' placeholder='Podaj NIP' {...register('isInvoiceRequired')}/>
+        <input
+          id='isInvoiceRequired'
+          type='checkbox'
+          placeholder='Podaj NIP'
+          {...register('isInvoiceRequired')}
+        />
         Faktura VAT
       </label>
-      <input id='nip' type="number" {...register('nip', {
-        required: {
+      <input
+        id='nip'
+        type='number'
+        {...register('nip', {
+          required: {
             value: isInvoiceRequired,
             message: 'Podaj NIP',
-        },
-        pattern: {
+          },
+          pattern: {
             value: /^[0-9]{10}$/,
             message: 'Podaj poprawny NIP',
-        },
-        disabled: !isInvoiceRequired,
-      })}/>
+          },
+          disabled: !isInvoiceRequired,
+        })}
+      />
       {errors.nip && <span className='error'>{errors.nip.message}</span>}
 
       <div className='footer'>
-        <button>Dodaj</button>
+        <button disabled={!isDirty}>Dodaj</button>
       </div>
     </form>
   );
