@@ -8,15 +8,19 @@ const initialPeople = [
     {
         name: "Jan Kowalski",
         age: 30,
-        tel: "+48555666777",
-        email: "jan.kowalski@gmail.com",
+        contact: {
+            tel: "+48555666777",
+            email: "jan.kowalski@gmail.com",
+        },
         nip: "0000000001",
     },
     {
         name: "Janina Kowalska",
         age: 25,
-        tel: "+48333222111",
-        email: "janina.kowalska@o2.com",
+        contact: {
+            tel: "+48333222111",
+            email: "janina.kowalska@o2.com",
+        },
     },
 ];
 

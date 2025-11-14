@@ -7,13 +7,21 @@ export function Form({ onAddPerson }) {
     register,
     handleSubmit,
     formState: { errors },
+    watch
   } = useForm();
 
   console.log(errors);
+  const isInvoiceRequired = watch('isInvoiceRequired');
 
   function onSubmit(data) {
-    console.log(data);
-    onAddPerson(data);
+    const { isInvoiceRequired, ...formData } = data;
+
+    if (!isInvoiceRequired) {
+      delete formData.nip;
+    }
+    
+    console.log(formData);
+    onAddPerson(formData);
   }
 
   return (
@@ -44,7 +52,7 @@ export function Form({ onAddPerson }) {
       <input
         id='tel'
         type='tel'
-        {...register('tel', {
+        {...register('contact.tel', {
           required: 'Podaj numer telefonu',
           pattern: {
             value: /^\+?[0-9]{9,15}$/,
@@ -52,21 +60,32 @@ export function Form({ onAddPerson }) {
           },
         })}
       />
-      {errors.tel && <span className='error'>{errors.tel.message}</span>}
+      {errors.contact?.tel && <span className='error'>{errors.contact.tel.message}</span>}
 
       <label htmlFor='email'>E-mail</label>
       <input
         id='email'
         type='email'
-        {...register('email', { required: 'Podaj email', validate: (value) => value.includes('@') || 'Podaj poprawny email' })}
+        {...register('contact.email', { required: 'Podaj email', validate: (value) => value.includes('@') || 'Podaj poprawny email' })}
       />
-      {errors.email && <span className='error'>{errors.email.message}</span>}
+      {errors.contact?.email && <span className='error'>{errors.contact.email.message}</span>}
 
-      {/* <label htmlFor='isInvoiceRequired'>
-        <input id='isInvoiceRequired' type='checkbox' placeholder='Podaj NIP' />
+      <label htmlFor='isInvoiceRequired'>
+        <input id='isInvoiceRequired' type='checkbox' placeholder='Podaj NIP' {...register('isInvoiceRequired')}/>
         Faktura VAT
       </label>
-      <input id='nip' /> */}
+      <input id='nip' type="number" {...register('nip', {
+        required: {
+            value: isInvoiceRequired,
+            message: 'Podaj NIP',
+        },
+        pattern: {
+            value: /^[0-9]{10}$/,
+            message: 'Podaj poprawny NIP',
+        },
+        disabled: !isInvoiceRequired,
+      })}/>
+      {errors.nip && <span className='error'>{errors.nip.message}</span>}
 
       <div className='footer'>
         <button>Dodaj</button>
