@@ -1,17 +1,17 @@
-import { useState } from "react";
-import "./List.css";
+import { useQuery } from '@tanstack/react-query';
+import './List.css';
+import { peopleQueryOptions } from '../queries/peopleQueryOptions';
 
 export const List = () => {
-    const [people, setPeople] = useState([
-        { id: 1, name: "Alice", email: "alice@example.com", age: 25 },
-        { id: 2, name: "Bob", email: "bob@example.com", age: 30 },
-    ]);
+  const { data: people } = useQuery(peopleQueryOptions);
 
-    return (
-        <ul>
-            {people?.map((person) => (
-                <li key={person.id}>{person.name}</li>
-            ))}
-        </ul>
-    );
+  console.log(people);
+
+  return (
+    <ul>
+      {people?.map((person) => (
+        <li key={person.id}>{person.name}</li>
+      ))}
+    </ul>
+  );
 };
